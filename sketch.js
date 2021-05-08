@@ -15,13 +15,13 @@ var thunderCreatedFrame=0;
 
 function preload(){
 
-    thunder1 = loadImage("thunderbolt/1.png");
-    thunder2 = loadImage("thunderbolt/2.png");
-    thunder3 = loadImage("thunderbolt/3.png");
-    thunder4 = loadImage("thunderbolt/4.png");
+    thunder1 = loadImage("1.png");
+    thunder2 = loadImage("2.png");
+    thunder3 = loadImage("3.png");
+    thunder4 = loadImage("4.png");
 
-    batAnimation = loadAnimation("bat/bat1.png","bat/bat2.png","bat/bat3.png","bat/bat4.png","bat/bat5.png",
-    "bat/bat6.png","bat/bat7.png","bat/bat8.png","bat/bat9.png","bat/bat10.png","bat/bat11.png","bat/bat12.png");
+    batAnimation = loadAnimation("bat1.png","bat2.png","bat3.png","bat4.png","bat5.png",
+    "bat6.png","bat7.png","bat8.png","bat9.png","bat10.png","bat11.png","bat12.png");
    
 }
 
@@ -34,15 +34,10 @@ function setup(){
     umbrella = new Umbrella(200,500);
 
     if(frameCount % 150 === 0){
-
         for(var i=0; i<maxDrops; i++){
-
             drops.push(new createDrop(random(0,400), random(0,400)));
-
         }
-
     }
-    
 }
 
 function draw(){
@@ -53,7 +48,6 @@ function draw(){
     rand = Math.round(random(1,4));
 
     if(frameCount%80===0){
-
         thunderCreatedFrame=frameCount;
         thunder = createSprite(random(10,370), random(10,30), 10, 10);
 
@@ -71,11 +65,8 @@ function draw(){
             break;
 
             default: break;
-
         }
-
         thunder.scale = random(0.3, 0.6)
-
     }
 
     bat= createSprite(Math.round(random(0,400)),Math.round(random(0,400)));
@@ -83,7 +74,6 @@ function draw(){
     bat.visible = false;
 
     if(frameCount % 100 === 0){
-
         bat.visible = true;
         bat.velocityX = Math.round(random(-4,4));
         bat.velocityY = Math.round(random(-4,4));
@@ -92,20 +82,15 @@ function draw(){
     }
 
     if(thunderCreatedFrame + 10 ===frameCount && thunder){
-
         thunder.destroy();
-
     }
 
     umbrella.display();
 
     for(var i = 0; i<maxDrops; i++){
-
         drops[i].display();
         drops[i].update()
-
     }
 
     drawSprites();
-
 }  
